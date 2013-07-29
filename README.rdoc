@@ -1,3 +1,10 @@
-= redmine_macros_textile
+= Redmine Textile macro plugin
 
-Description goes here
+This plugin adds textile macro.
+
+Usage:
+
+{{textile()
+TEXTILE FORMAT
+}}
+
