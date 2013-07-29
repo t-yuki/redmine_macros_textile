@@ -6,3 +6,18 @@ Redmine::Plugin.register :redmine_macros_textile do
   url 'http://github.com/t-yuki/redmine_macros_textile'
   author_url 'http://github.com/t-yuki'
 end
+
+require 'redmine/wiki_formatting/textile/formatter'
+
+module RedmineMacros
+  module TextileMacro
+    Redmine::WikiFormatting::Macros.register do
+      desc 'Render textile format text.'
+      macro :textile do |obj, args, text|
+        formatter = Redmine::WikiFormatting::Textile::Formatter.new text
+        formatter.to_html.html_safe
+      end
+    end
+  end
+end
+
